@@ -46,4 +46,5 @@ pnpm mock       # 另开一个终端：json-server mock 后台 http://localhost:
 ## 部署
 
 - 仓库（Gitee）：https://gitee.com/coker-coal/se3306-exp2
-- 部署链接：（构建后填写）
+- 部署链接：<https://se3306-exp2.vercel.app>（Vercel，Root Directory 设为 `lab2-blog`，
+  Framework Vite，`pnpm build` → `dist`；线上数据源为内置 mock，无需后台进程）

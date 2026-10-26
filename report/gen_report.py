@@ -350,7 +350,7 @@ P("lab2-blog 执行 pnpm build 产出纯静态 dist（261 KB gzip 90 KB），pnp
 TBL([
     ["项目", "地址 / 说明"],
     ["Gitee 仓库（作业提交）", "https://gitee.com/coker-coal/se3306-exp2"],
-    ["部署链接", "【部署完成后回填：______________________】"],
+    ["部署链接", "https://se3306-exp2.vercel.app（Vercel，Root Directory 设为 lab2-blog，Framework Vite，pnpm build → dist）"],
     ["线上数据源口径", "托管平台跑不了 json-server → 按指导书口径，部署版数据源自动切内置 mock（import.meta.env.PROD 判断），验收以本地截图 + 部署主页能打开为准"],
 ])
 P("本地验证方式：三个子项目全部通过 pnpm build 构建、ESLint 0 错误；报告中 26 张截图全部由脚本驱动无头 Chrome 在生产构建上真实操作后截取（tools/shots.js），无一张手工摆拍。")
