@@ -1,3 +1,3 @@
-# 实验二截图与报告草稿（本地生成，不入库）
-lab2-shots/
-report/
+# 报告生成脚本的输出（docx 交付件不入库）
+report/*.pyc
+report/out/
