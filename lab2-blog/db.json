@@ -1,0 +1,68 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "我的第一篇博客",
+      "category": "技术",
+      "summary": "Query 三态先跑通",
+      "content": "这篇文章来自 json-server 的 db.json，不是浏览器本地数据。刷新页面还在，因为所有者在服务器那一边。",
+      "publishedAt": "2026-09-01"
+    },
+    {
+      "id": "2",
+      "title": "乐观更新初体验",
+      "category": "随笔",
+      "summary": "先秒出、失败回滚",
+      "content": "点发布的一瞬间列表就多了一条，这是缓存里先插入的临时数据；请求回来之后再重新拉取对齐。",
+      "publishedAt": "2026-09-03"
+    },
+    {
+      "id": "3",
+      "title": "json-server 五分钟上手",
+      "category": "技术",
+      "summary": "一条命令的 mock 后台",
+      "content": "npx json-server db.json --port 3000 起服务，增删改查全部落盘到 db.json，重启不丢。",
+      "publishedAt": "2026-09-06"
+    },
+    {
+      "title": "乐观更新测试：这条先秒出",
+      "category": "技术",
+      "summary": "来自服务端列表的乐观更新",
+      "content": "这条数据由 TanStack Query 的 useMutation 写到 mock 后台。",
+      "publishedAt": "2026-10-26",
+      "id": "T0JQZok"
+    },
+    {
+      "title": "乐观更新测试：这条先秒出",
+      "category": "技术",
+      "summary": "来自服务端列表的乐观更新",
+      "content": "这条数据由 TanStack Query 的 useMutation 写到 mock 后台。",
+      "publishedAt": "2026-10-26",
+      "id": "GKNnkhF"
+    },
+    {
+      "title": "乐观更新测试：这条先秒出",
+      "category": "技术",
+      "summary": "来自服务端列表的乐观更新",
+      "content": "这条数据由 TanStack Query 的 useMutation 写到 mock 后台。",
+      "publishedAt": "2026-10-26",
+      "id": "VaxsZE8"
+    },
+    {
+      "title": "乐观更新测试：这条先秒出",
+      "category": "技术",
+      "summary": "来自服务端列表的乐观更新",
+      "content": "这条数据由 TanStack Query 的 useMutation 写到 mock 后台。",
+      "publishedAt": "2026-10-26",
+      "id": "TFMuQVf"
+    },
+    {
+      "title": "乐观更新测试：这条先秒出",
+      "category": "技术",
+      "summary": "来自服务端列表的乐观更新",
+      "content": "这条数据由 TanStack Query 的 useMutation 写到 mock 后台。",
+      "publishedAt": "2026-10-26",
+      "id": "NjLMFNp"
+    }
+  ]
+}

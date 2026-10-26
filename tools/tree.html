@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<title>组件树</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 26px 30px 30px; background: #fff; color: #1f2430;
+    font-family: -apple-system, "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+  }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  .sub { color: #6b7280; font-size: 12.5px; margin: 0 0 18px; }
+  .cols { display: grid; grid-template-columns: 1.15fr 1fr; gap: 26px; }
+  h2 { font-size: 14.5px; margin: 0 0 10px; padding-bottom: 6px; border-bottom: 1px solid #e3e6eb; }
+  ul { list-style: none; margin: 0; padding-left: 24px; border-left: 1.5px solid #d5dbe5; }
+  .tree-root { border-left: 0; padding-left: 0; }
+  li { position: relative; padding: 5px 0; }
+  li::before {
+    content: ""; position: absolute; left: -24px; top: 20px;
+    width: 18px; height: 1.5px; background: #d5dbe5;
+  }
+  .tree-root > li::before { display: none; }
+  .node {
+    display: inline-block; padding: 5px 11px; border-radius: 8px;
+    border: 1px solid #d5dbe5; background: #f8fafc; font-size: 13px;
+  }
+  .node.root { background: #2f6fed; border-color: #2f6fed; color: #fff; font-weight: 600; }
+  .node.state { background: #eef3ff; border-color: #c9d9ff; }
+  .node.leaf { background: #fff; }
+  .tag { color: #6b7280; font-size: 11.5px; margin-left: 6px; }
+  .legend { margin-top: 18px; font-size: 12px; color: #6b7280; line-height: 1.9; }
+  .legend b { color: #1f2430; }
+</style>
+</head>
+<body>
+  <h1>实验二 组件树与 state 分布</h1>
+  <p class="sub">蓝色 = 持有 state 的组件；浅蓝 = 通过 props 接收数据/回调；白色 = 纯展示组件</p>
+
+  <div class="cols">
+    <div>
+      <h2>lab2-blog：博客（任务4 / 任务5）</h2>
+      <ul class="tree-root">
+        <li><span class="node root">App</span><span class="tag">分类 / 搜索词 / 打开的文章 id / 编辑中的 id（useState）</span>
+          <ul>
+            <li><span class="node">Header</span><span class="tag">页签切换</span></li>
+            <li><span class="node state">PostForm</span><span class="tag">草稿（useLocalStorage）+ 表单（useState）</span></li>
+            <li><span class="node">CategoryFilter</span><span class="tag">props: current / counts / onChange</span></li>
+            <li><span class="node">PostList</span><span class="tag">props: posts</span>
+              <ul>
+                <li><span class="node">PostItem × N</span><span class="tag">props: post / onOpen，key=post.id</span></li>
+              </ul>
+            </li>
+            <li><span class="node">PostDetail</span><span class="tag">props: post / onEdit / onDelete</span></li>
+            <li><span class="node state">RemotePosts</span><span class="tag">数据源（useState）+ 服务端缓存（useQuery）</span></li>
+            <li><span class="node">About</span><span class="tag">纯展示</span></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="legend">
+        <b>全局 store：</b>usePostStore 里的 posts + publish / update / remove / reset（persist，只持久化 posts）<br />
+        <b>数据层：</b>api/client.js → api/posts.js → api/mock.js（换后台只改 BASE_URL）
+      </div>
+    </div>
+
+    <div>
+      <h2>任务3：四步法（可搜索产品表格）</h2>
+      <ul class="tree-root">
+        <li><span class="node root">FilterableProductTable</span><span class="tag">filterText / inStockOnly</span>
+          <ul>
+            <li><span class="node state">SearchBar</span><span class="tag">props: 值 + 两个回调</span></li>
+            <li><span class="node state">ProductTable</span><span class="tag">过滤后的行是算出来的，不设 state</span>
+              <ul>
+                <li><span class="node">ProductCategoryRow</span><span class="tag">category</span></li>
+                <li><span class="node">ProductRow</span><span class="tag">product</span></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="legend">
+        <b>第3步结论：</b>会变的只有搜索词和复选框；过滤结果、分类小计都能从原数据算出来，不是 state。<br />
+        <b>第4步结论：</b>两个 state 放在共同最近父组件 FilterableProductTable。
+      </div>
+    </div>
+  </div>
+</body>
+</html>
